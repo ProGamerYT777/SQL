@@ -17,5 +17,6 @@ public class Application {
             Employee employee2 = new Employee(9,"Anton","Ivanov","Man",30, 5);
             employeeDao.updateEmployeeById(employee2);
             employeeDao.deleteEmployeeById(employee2);
+
         }
     }
