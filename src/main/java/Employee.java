@@ -1,16 +1,30 @@
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Employee")
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "gender")
     private String gender;
+    @Column(name = "age")
     private int age;
 
-    public Employee(int id, String firstName, String lastName, String gender, int age) {
+    @Column(name = "city_id")
+    private int cityId;
+
+    public Employee(int id, String firstName, String lastName, String gender, int age, int cityId) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
+        this.cityId = cityId;
     }
 
     public Employee() {
@@ -57,7 +71,6 @@ public class Employee {
     }
 
 
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -66,6 +79,7 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", age=" + age +
+                ", cityId=" + cityId +
                 '}';
     }
 }
