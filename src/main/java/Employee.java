@@ -15,16 +15,15 @@ public class Employee {
     @Column(name = "age")
     private int age;
 
-    @Column(name = "city_id")
-    private int cityId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "city")
+    private City city;
 
-    public Employee(int id, String firstName, String lastName, String gender, int age, int cityId) {
-        this.id = id;
+    public Employee(String firstName, String lastName, String gender, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
-        this.cityId = cityId;
     }
 
     public Employee() {
@@ -70,6 +69,13 @@ public class Employee {
         this.age = age;
     }
 
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     @Override
     public String toString() {
@@ -79,7 +85,9 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", age=" + age +
-                ", cityId=" + cityId +
                 '}';
     }
 }
+
+
+
